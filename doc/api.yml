@@ -1,0 +1,126 @@
+openapi: 3.0.3
+info:
+  title: Playback API
+  version: 1.0.11
+servers:
+  - url: https://localhost:8080/
+tags:
+  - name: playback
+    description: Everything about playback.
+paths:
+  /positions:
+    post:
+      tags: [playback]
+      summary: Persists a playback position.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/position'
+        required: true
+      responses:
+        '201':
+          description: Successful operation.
+        '400':
+          description: Invalid request payload
+        '422':
+          description: Payload validation failed
+    get:
+      tags: [playback]
+      summary: Returns a list of positions in descending order in respect to the creation time.
+      headers:
+        - in: query
+          name: page
+          description: Page number. Zero-based index.
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - in: query
+          name: per_page
+          description: Number of items to list per page.
+          schema:
+            type: integer
+            default: 10
+            minimum: 5
+            maximum: 50
+        - in: query
+          name: user_id
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: title_id
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: media_id
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: finished
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: List of positions
+          headers:
+            x-page:
+              description: The index of the current page (starting at 0).
+              schema:
+                type: integer
+            x-per-page:
+              description: The number of items per page.
+              schema:
+                type: integer
+            x-total:
+              description: The total number of items.
+              schema:
+                type: integer
+            x-total-pages:
+              description: The total number of pages.
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/position'
+        '400':
+          description: Invalid request payload
+        '422':
+          description: Payload validation failed
+components:
+  schemas:
+    position:
+      required:
+        - user_id
+        - title_id
+        - media_id
+        - position
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: uuid
+          example: 43072211-146a-4ae2-a016-1d6b8343d5a6
+        title_id:
+          type: string
+          format: uuid
+          example: d9ad49c4-8647-4b2a-955c-5e3a9b2cc1c3
+        media_id:
+          type: string
+          format: uuid
+          example: 78d78c68-aeb4-4897-98db-f29e7d262a55
+        position:
+          type: integer
+          format: int64
+          minimum: 0
+        finished:
+          type: boolean
+          example: true
+          default: false
