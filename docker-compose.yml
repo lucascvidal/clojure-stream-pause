@@ -9,6 +9,8 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://user:password@db:5432/playbackdb
+    volumes:
+      - ./:/usr/src/app
   db:
     image: postgres:13
     restart: always
