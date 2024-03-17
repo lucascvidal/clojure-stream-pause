@@ -2,7 +2,8 @@
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [playback_api.handler :as handler]
-            [ring.middleware.json :refer [wrap-json-body wrap-json-response]]))
+            [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
+            [ring.middleware.params :refer [wrap-params]]))
 
 (defroutes app-routes
   (POST "/positions" [] handler/post-position)
@@ -11,5 +12,6 @@
 
 (def app
   (-> app-routes
+      wrap-params
       (wrap-json-body {:keywords? true :bigdecimals? true})
       wrap-json-response))

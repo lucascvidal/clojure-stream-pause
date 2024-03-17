@@ -1,7 +1,7 @@
 (ns playback_api.utils
   (:require [clojure.string :as str]
             [clojure.uuid :as uuid])
-  (:import [java.util UUID]))
+  (:import (java.util UUID)))
 
 (defn is_uuid?
   "Checks if the string is a valid UUID."
@@ -43,3 +43,11 @@
 
 (defn compact [m]
   (into {} (filter (comp some? val) m)))
+
+(defn string-to-uuid [s]
+  (when s
+    (try
+      (java.util.UUID/fromString s)
+      (catch IllegalArgumentException e nil))))
+
+(defn now [] (new java.util.Date))

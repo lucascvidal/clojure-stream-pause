@@ -24,10 +24,16 @@
 
 (defn get-positions [request]
   (let [{:strs [page per_page user_id title_id media_id finished]} (:query-params request)
-        filters (select-keys (utils/compact {:user_id user_id :title_id title_id :media_id media_id :finished finished}) [:user_id :title_id :media_id :finished])
+        filters (utils/compact {:user_id (utils/string-to-uuid user_id)
+                                :title_id (utils/string-to-uuid title_id)
+                                :media_id (utils/string-to-uuid media_id)
+                                :finished (case finished
+                                            "true" true
+                                            "false" false
+                                            nil nil)})
         page-int (max 0 (or (try (Integer/parseInt page) (catch Exception _ 0)) 0))
         per_page-int (max 5 (min 50 (or (try (Integer/parseInt per_page) (catch Exception _ 10)) 10)))
-        positions (position/list-positions page-int per_page-int filters)
+        positions (position/list-positions filters) ; page-int per_page-int)
         total (count positions)
         total-pages (Math/ceil (/ total (float per_page-int)))]
     (-> (response/response positions)
