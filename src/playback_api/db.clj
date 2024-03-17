@@ -18,5 +18,6 @@
                       title_id UUID NOT NULL,
                       media_id UUID NOT NULL,
                       position INTEGER NOT NULL,
-                      finished BOOLEAN NOT NULL
+                      finished BOOLEAN NOT NULL,
+                      created_at timestamp
                       )"]))
