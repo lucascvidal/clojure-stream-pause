@@ -1,7 +1,7 @@
-(ns playback_api.routes
+(ns playback-api.routes
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
-            [playback_api.handler :as handler]
+            [playback-api.handler :as handler]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             [ring.middleware.params :refer [wrap-params]]))
 

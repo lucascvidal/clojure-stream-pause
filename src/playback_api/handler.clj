@@ -1,9 +1,8 @@
-(ns playback_api.handler
+(ns playback-api.handler
   (:require [compojure.core :refer :all]
             [ring.util.response :as response :refer [content-type]]
-            [cheshire.core :as json]
-            [playback_api.models.position :as position]
-            [playback_api.utils :as utils]))
+            [playback-api.models.position :as position]
+            [playback-api.utils :as utils]))
 
 (defn post-position [request]
   (let [body (:body request)]

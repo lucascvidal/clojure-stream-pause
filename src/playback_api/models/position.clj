@@ -1,8 +1,8 @@
-(ns playback_api.models.position
+(ns playback-api.models.position
   (:require [next.jdbc :as jdbc]
             [next.jdbc.sql :as sql]
-            [playback_api.db :refer [db-spec]]
-            [playback_api.utils :refer [string-to-uuid]]))
+            [playback-api.db :refer [db-spec]]
+            [playback-api.utils :refer [string-to-uuid]]))
 
 (defn insert-position
   "Persists a playback position in the database."

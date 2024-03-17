@@ -1,4 +1,4 @@
-(ns playback_api.utils
+(ns playback-api.utils
   (:require [clojure.string :as str]
             [clojure.uuid :as uuid])
   (:import (java.util UUID)))

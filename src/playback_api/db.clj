@@ -1,4 +1,4 @@
-(ns playback_api.db
+(ns playback-api.db
   (:require [environ.core :refer [env]]
             [next.jdbc.sql :as sql]
             [next.jdbc :as jdbc]))
