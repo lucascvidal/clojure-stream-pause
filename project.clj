@@ -1,4 +1,4 @@
-(defproject playback_api "0.1.0-SNAPSHOT"
+(defproject playback-api "0.1.0-SNAPSHOT"
   :description "BP Backend Exercise"
   :url "http://localhost:8080/"
   :dependencies [[org.clojure/clojure "1.11.1"]
@@ -12,7 +12,7 @@
                  [org.slf4j/slf4j-simple "1.7.30"]
                  [ring/ring-json "0.5.1"]
                  [ring/ring-mock "0.4.0"]]
-  :main ^:skip-aot playback_api.core
+  :main ^:skip-aot playback-api.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
                        :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
