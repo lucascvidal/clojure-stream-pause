@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "991cd4e4-625d-48fd-88f0-a52b149fda62",
+		"name": "BP Backend Exercise",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21521245"
+	},
+	"item": [
+		{
+			"name": "POST positions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": \"43072211-146a-4ae2-a016-1d6b8343d5a6\",\r\n  \"title_id\": \"d9ad49c4-8647-4b2a-955c-5e3a9b2cc1c3\",\r\n  \"media_id\": \"78d78c68-aeb4-4897-98db-f29e7d262a55\",\r\n  \"position\": 120,\r\n  \"finished\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/positions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"positions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST positions no body",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/positions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"positions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST positions invalid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": \"43072211-146a-4ae2-a016-1d6b8343d5a6\",\r\n  \"title_id\": \"d9ad49c4-8647-4b2a-955c-5e3a9b2cc1c3\",\r\n  \"media_id\": \"78d78c68-aeb4-4897-98db-f29e7d262a55\",\r\n  \"finished\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/positions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"positions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET positions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/positions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"positions"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "43072211-146a-4ae2-a016-1d6b8343d5a6",
+							"disabled": true
+						},
+						{
+							"key": "per_page",
+							"value": "5",
+							"disabled": true
+						},
+						{
+							"key": "title_id",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "media_id",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "finished",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET positions with user_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/positions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"positions"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "43072211-146a-4ae2-a016-1d6b8343d5a6",
+							"disabled": true
+						},
+						{
+							"key": "per_page",
+							"value": "5",
+							"disabled": true
+						},
+						{
+							"key": "title_id",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "media_id",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "finished",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
