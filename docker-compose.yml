@@ -1,10 +1,11 @@
 version: '3.8'
 services:
   app:
+    container_name: playback-api
     build: .
     command: sleep infinity
     ports:
-      - "3000:3000"
+      - "8080:8080"
     depends_on:
       - db
     environment:
