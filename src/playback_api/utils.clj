@@ -50,4 +50,3 @@
       (java.util.UUID/fromString s)
       (catch IllegalArgumentException e nil))))
 
-(defn now [] (new java.util.Date))
