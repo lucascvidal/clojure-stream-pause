@@ -7,6 +7,7 @@
                  [environ "1.2.0"]
                  [ring/ring-core "1.12.0"]
                  [compojure "1.7.1"]
+                 [cheshire "5.12.0"]
                  [ring/ring-jetty-adapter "1.12.0"]
                  [org.slf4j/slf4j-simple "1.7.30"]
                  [ring/ring-json "0.5.1"]

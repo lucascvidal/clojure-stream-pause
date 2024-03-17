@@ -2,6 +2,7 @@
   (:require [clojure.test :refer :all]
             [ring.mock.request :as mock]
             [playback-api.handler :as handler]
+            [cheshire.core :as json]
             [playback-api.models.position :as position]))
 
 (deftest test-post-position
