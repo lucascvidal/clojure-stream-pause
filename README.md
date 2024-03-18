@@ -9,7 +9,7 @@ Este projeto é uma solução proposta a um exercício. É uma aplicação desen
 
 A solução para o exercício consiste em 2 partes, a API de reprodução e o banco de dados. O frontend é mencionado no diagrama, mas não faz parte deste projeto.
 
-![Playback API diagram](./resources/bp-backend-ex.png")
+![Playback API diagram](./resources/bp-backend-ex.png)
 
 Obs.: Se a imagem acima falhar, você consegue visualizá-la na pasta resources/ do projeto.
 
