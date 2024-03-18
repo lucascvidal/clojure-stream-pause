@@ -21,9 +21,8 @@
         (-> (response/response "Successful operation.")
           (assoc :status 201))))))
 
-(defn validate-and-convert-uuid [uuid-str]
-  (if (or (nil? uuid-str) (empty? uuid-str))
-    (throw (Exception. "Invalid UUID"))
+(defn- validate-and-convert-uuid [uuid-str]
+  (when (and uuid-str (not (empty? uuid-str)))
     (if-let [uuid (utils/string-to-uuid uuid-str)]
       uuid
       (throw (Exception. "Invalid UUID")))))
